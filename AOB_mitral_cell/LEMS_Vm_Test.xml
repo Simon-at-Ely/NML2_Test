@@ -1,0 +1,45 @@
+<Lems>
+    
+    <!-- 
+
+        This LEMS file has been automatically generated using PyNeuroML v0.1.7 (libNeuroML v0.2.11)
+
+     -->
+    
+    <!-- Specify which component to run -->
+    <Target component="Vm_Test"/>
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+    
+    <Include file="NML2_SingleCompHHCell.nml"/>
+    <Include file="NaConductance.channel.nml"/>
+    <Include file="NaP_iAMC_ChannelML.channel.nml"/>
+    <Include file="Kdr_iAMC_ChannelML.channel.nml"/>
+    <Include file="KA_iAMC_ChannelML.channel.nml"/>
+    <Include file="LeakConductance.channel.nml"/>
+    <Include file="CaV_R_iAMC_ChannelML.channel.nml"/>
+    <Include file="Vm_Test.sim.nml"/>
+    <Include file="NML2_SingleCompHHCell.nml"/>
+    <Include file="NaConductance.channel.nml"/>
+    <Include file="NaP_iAMC_ChannelML.channel.nml"/>
+    <Include file="Kdr_iAMC_ChannelML.channel.nml"/>
+    <Include file="KA_iAMC_ChannelML.channel.nml"/>
+    <Include file="LeakConductance.channel.nml"/>
+    <Include file="CaV_R_iAMC_ChannelML.channel.nml"/>
+   
+    <Simulation id="Vm_Test" length="1000ms" step="0.05ms" target="network">
+        
+        <Display id="Voltage_display" title="Voltages" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-90" ymax="50">
+            <Line id="V" quantity="hhpop/0/hhcell/v" scale="1mV" color="#2c2aa2" timeScale="1ms"/>
+        </Display>
+        
+        <OutputFile id="Volts_file" fileName="Vm_Test.v.dat">
+            <OutputColumn id="V" quantity="hhpop/0/hhcell/v"/> 
+        </OutputFile>
+        
+    </Simulation>
+
+</Lems>
