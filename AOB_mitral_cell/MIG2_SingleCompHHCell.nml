@@ -12,7 +12,7 @@
     
      
     <!--include href="NaConductance.channel.nml"/-->
-    <!--include href="nax.channel.nml"/-->
+    <include href="nax.channel.nml"/>
     <!--include href="NaP_iAMC_ChannelML.channel.nml"/-->
     <!--include href="KConductance.channel.nml"/--> 
     <!--include href="Kdr_iAMC_ChannelML.channel.nml"/-->
@@ -42,7 +42,7 @@
             <membraneProperties>
                         
                 <channelDensity id="leak" ionChannel="LeakConductance" condDensity="0.01676 mS_per_cm2" erev="-74.1 mV"/>
-		<!--channelDensity condDensity="7.0 mS_per_cm2" ionChannel="nax" ion="na" erev="67.0 mV"/-->
+		<channelDensity condDensity="7.0 mS_per_cm2" ionChannel="nax" ion="na" erev="67.0 mV"/>
                 <!--channelDensity condDensity="40.0 mS_per_cm2" ionChannel="NaP_iAMC_ChannelML" ion="na" erev="67.0 mV"/-->
 		<!--channelDensity id="NaConductances" ionChannel="NaConductance" condDensity="120.0 mS_per_cm2" erev="67.0 mV" ion="na"/-->
                 <!--channelDensity id="KConductances" ionChannel="KConductance" condDensity="360 S_per_m2" erev="-77mV" ion="k"/-->
