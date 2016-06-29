@@ -14,18 +14,30 @@
     <Include file="Networks.xml"/>
     <Include file="Simulation.xml"/>
     
-    <Include file="MIG1_SingleCompHHCell.nml"/>
+    <Include file="NML2_SingleCompHHCell.nml"/>
     <Include file="NaxSH10_ChannelML.channel.nml"/>
+    <Include file="NaP_iAMC_ChannelML.channel.nml"/>
+    <Include file="Kdr_iAMC_ChannelML.channel.nml"/>
+    <Include file="KA_iAMC_ChannelML.channel.nml"/>
     <Include file="LeakConductance.channel.nml"/>
+    <Include file="BK_IAMC_ChannelML.channel.nml"/>
+    <Include file="CaV_R_iAMC_ChannelML.channel.nml"/>
+    <Include file="Gran_CaPool_98.nml"/>
     <Include file="Vm_Test.sim.nml"/>
-    <Include file="MIG1_SingleCompHHCell.nml"/>
+    <Include file="NML2_SingleCompHHCell.nml"/>
     <Include file="NaxSH10_ChannelML.channel.nml"/>
+    <Include file="NaP_iAMC_ChannelML.channel.nml"/>
+    <Include file="Kdr_iAMC_ChannelML.channel.nml"/>
+    <Include file="KA_iAMC_ChannelML.channel.nml"/>
     <Include file="LeakConductance.channel.nml"/>
+    <Include file="BK_IAMC_ChannelML.channel.nml"/>
+    <Include file="CaV_R_iAMC_ChannelML.channel.nml"/>
+    <Include file="Gran_CaPool_98.nml"/>
    
     <Simulation id="Vm_Test" length="1000ms" step="0.05ms" target="network" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->
         
         <Display id="Voltage_display" title="Voltages" timeScale="1ms" xmin="-100.0" xmax="1100.0" ymin="-90" ymax="50">
-            <Line id="V" quantity="hhpop/0/hhcell/v" scale="1mV" color="#e0e96d" timeScale="1ms"/>
+            <Line id="V" quantity="hhpop/0/hhcell/v" scale="1mV" color="#79c315" timeScale="1ms"/>
         </Display>
         
         <OutputFile id="Volts_file" fileName="Vm_Test.v.dat">

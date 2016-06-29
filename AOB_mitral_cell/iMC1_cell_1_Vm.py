@@ -10,11 +10,11 @@ from pyneuroml.lems import generate_lems_file_for_neuroml
 
 import numpy as np
 
-def generate_Vm_vs_time_plot(MIG1_file, 
+def generate_Vm_vs_time_plot(NML2_file, 
                                         cell_id, 
-                                        inj_amp_nA = 80,
-                                        delay_ms = 20,
-                                        inj_dur_ms = 60,
+                                     #   inj_amp_nA = 80,
+                                     #   delay_ms = 20,
+                                     #   inj_dur_ms = 0.5,
                                         sim_dur_ms = 1000, 
                                         dt = 0.05,
                                         temperature = "35",
@@ -27,33 +27,33 @@ def generate_Vm_vs_time_plot(MIG1_file,
 	# simulation parameters                                            
     nogui = '-nogui' in sys.argv  # Used to supress GUI in tests for Travis-CI
     
-    ref = "Test"
+    ref = "iMC1_cell_1_origin"
     print_comment_v("Generating Vm(mV) vs Time(ms) plot for cell %s in %s using %s"% # (Inj %snA / %sms dur after %sms delay)"%
-        (cell_id, MIG1_file, simulator))#, inj_amp_nA, inj_dur_ms, delay_ms))
+        (cell_id, NML2_file, simulator))#, inj_amp_nA, inj_dur_ms, delay_ms))
     
     sim_id = 'Vm_%s'%ref
     duration = sim_dur_ms
     ls = LEMSSimulation(sim_id, sim_dur_ms, dt)
     
-    ls.include_neuroml2_file(MIG1_file, include_included=include_included)
+    ls.include_neuroml2_file(NML2_file, include_included=include_included)
     ls.assign_simulation_target('network')
     nml_doc = nml.NeuroMLDocument(id=cell_id)
     
-    nml_doc.includes.append(nml.IncludeType(href=MIG1_file))
+    nml_doc.includes.append(nml.IncludeType(href=NML2_file))
     
-    net = nml.Network(id="network")
+    net = nml.Network(id="network", type='networkWithTemperature', temperature='%sdegC'%temperature)
     nml_doc.networks.append(net)
     
-    input_id = ("input_%s"%str(inj_amp_nA).replace('.','_'))
-    pg = nml.PulseGenerator(id=input_id,
-                                    delay="%sms"%delay_ms,
-                                    duration='%sms'%inj_dur_ms,
-                                    amplitude='%spA'%inj_amp_nA)
-    nml_doc.pulse_generators.append(pg)
+    #input_id = ("input_%s"%str(inj_amp_nA).replace('.','_'))
+    #pg = nml.PulseGenerator(id=input_id,
+    #                                delay="%sms"%delay_ms,
+    #                                duration='%sms'%inj_dur_ms,
+    #                                amplitude='%spA'%inj_amp_nA)
+    #nml_doc.pulse_generators.append(pg)
     
     
-    pop_id = 'hhpop'
-    pop = nml.Population(id=pop_id, component='hhcell', size=1, type="populationList")
+    pop_id = 'single_cell'
+    pop = nml.Population(id=pop_id, component='iMC1_cell_1_origin', size=1, type="populationList")
     
     inst = nml.Instance(id=0)
     pop.instances.append(inst)
@@ -61,14 +61,14 @@ def generate_Vm_vs_time_plot(MIG1_file,
     net.populations.append(pop)
     
     # Add these to cells
-    input_list = nml.InputList(id='il_%s'%input_id,
-                                 component=pg.id,
-                                 populations=pop_id)
-    input = nml.Input(id='0',  target='../hhpop/0/hhcell',
-                              destination="synapses")  
+    #input_list = nml.InputList(id='il_%s'%input_id,
+    #                             component=pg.id,
+    #                             populations=pop_id)
+    #input = nml.Input(id='0',  target='../hhpop/0/hhcell',
+    #                          destination="synapses")  
     
-    input_list.input.append(input)
-    net.input_lists.append(input_list)
+    #input_list.input.append(input)
+    #net.input_lists.append(input_list)
     
     sim_file_name = '%s.sim.nml'%sim_id
     pynml.write_neuroml2_file(nml_doc, sim_file_name)
@@ -114,4 +114,4 @@ def generate_Vm_vs_time_plot(MIG1_file,
     
 
     
-generate_Vm_vs_time_plot('MIG1_SingleCompHHCell.nml', 'hhcell', plot_voltage_traces =  True)
+generate_Vm_vs_time_plot('iMC1_cell_1_origin.cell.nml', 'iMC1_cell_1_origin', plot_voltage_traces =  True)

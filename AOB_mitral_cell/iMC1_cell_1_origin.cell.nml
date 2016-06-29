@@ -27338,10 +27338,8 @@ Imaris exported file name:
 
                 <!--This 'Section' has number of internal divisions (nseg) = 2-->
 
-                <annotation>
-                    <property tag="numberInternalDivisions" value="2"/>
-                </annotation>
-            
+                <property tag="numberInternalDivisions" value="2"/>
+
                 <member segment="501"/>
             
                 <member segment="502"/>
@@ -28094,10 +28092,8 @@ Imaris exported file name:
 
                 <!--This 'Section' has number of internal divisions (nseg) = 2-->
 
-                <annotation>
-                    <property tag="numberInternalDivisions" value="2"/>
-                </annotation>
-            
+                <property tag="numberInternalDivisions" value="2"/>
+
                 <member segment="873"/>
             
                 <member segment="874"/>
@@ -36056,10 +36052,8 @@ Imaris exported file name:
 
                 <!--This 'Section' has number of internal divisions (nseg) = 2-->
 
-                <annotation>
-                    <property tag="numberInternalDivisions" value="2"/>
-                </annotation>
-            
+                <property tag="numberInternalDivisions" value="2"/>
+
                 <member segment="4737"/>
             
                 <member segment="4738"/>
@@ -37224,7 +37218,7 @@ Imaris exported file name:
                 <channelDensity condDensity="7.0 mS_per_cm2" id="NaxSH10_ChannelML_dendrite_group" ionChannel="NaxSH10_ChannelML" segmentGroup="dendrite_group" ion="na" erev="67.0 mV"/>
                 
 
-                <spikeThresh value="0 mV"/>
+                <spikeThresh value="0.0 mV"/>
 
                 <specificCapacitance value="0.799 uF_per_cm2"/>
 
@@ -37234,9 +37228,9 @@ Imaris exported file name:
 
             <intracellularProperties>
 
-                <species segmentGroup="dendrite_group" id="ca" ion="ca" concentrationModel="Gran_CaPool_98"/>
+                <species segmentGroup="dendrite_group" id="ca" ion="ca" concentrationModel="Gran_CaPool_98" initialConcentration="7.55E-11 mol_per_cm3" initialExtConcentration="2.4E-6 mol_per_cm3"/>
 
-                <species segmentGroup="soma_group" id="ca" ion="ca" concentrationModel="Gran_CaPool_98"/>
+                <species segmentGroup="soma_group" id="ca" ion="ca" concentrationModel="Gran_CaPool_98" initialConcentration="7.55E-11 mol_per_cm3" initialExtConcentration="2.4E-6 mol_per_cm3"/>
 
                 <resistivity value="0.056 kohm_cm"/>
 
@@ -37245,5 +37239,10 @@ Imaris exported file name:
         </biophysicalProperties>
 
     </cell>
+
+    <network id="net1" type="networkWithTemperature" temperature="32.0 degC">
+        <population id="single_cell" component="iMC1_cell_1_origin" size="1"/>
+        <!--explicitInput target="single_cell[0]" input="pulseGen1"/-->
+    </network>
     
 </neuroml>
