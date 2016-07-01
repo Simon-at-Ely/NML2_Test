@@ -21,7 +21,7 @@ def generate_Vm_vs_time_plot(NML2_file,
                                         spike_threshold_mV=0.,
                                         plot_voltage_traces=False,
                                         show_plot_already=True, 
-                                        simulator="jNeuroML",
+                                        simulator="jNeuroML_NEURON",
                                         include_included=True):
                                             
 	# simulation parameters                                            
