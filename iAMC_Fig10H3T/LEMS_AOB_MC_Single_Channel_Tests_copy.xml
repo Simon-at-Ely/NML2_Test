@@ -1,0 +1,46 @@
+<Lems xmlns="http://www.neuroml.org/lems/0.7.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/lems/0.7.2  https://raw.githubusercontent.com/LEMS/LEMS/development/Schemas/LEMS/LEMS_v0.7.2.xsd">
+
+    <Target component="sim1" reportFile="/home/Simon/nC_projects/AOB_MC_Single_Channel_Tests_copy/simulations/Sim_11/simulator.props" timesFile="/home/Simon/nC_projects/AOB_MC_Single_Channel_Tests_copy/simulations/Sim_11/time.dat"/>
+
+        <!--Include standard NeuroML 2 ComponentType definitions-->
+
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+
+    
+
+        <!--Include the generated NeuroML 2 files-->
+
+
+        <!--   Channel/synapse files-->
+    <Include file="BK_IAMC_ChannelML.channel.nml"/>
+    <Include file="CaV_R_iAMC_ChannelML.channel.nml"/>
+    <Include file="Gran_CaPool_98.nml"/>
+    <Include file="KA_iAMC_ChannelML.channel.nml"/>
+    <Include file="Kdr_iAMC_ChannelML.channel.nml"/>
+    <Include file="LeakConductance.channel.nml"/>
+    <Include file="NaP_iAMC_ChannelML.channel.nml"/>
+    <Include file="NaxSH0_ChannelML.channel.nml"/>
+    <Include file="NaxSH10_ChannelML.channel.nml"/>
+        <!--   Cell files-->
+    <Include file="iMC1_cell_1_origin.cell.nml"/>
+        <!--   Network file-->
+    <Include file="AOB_MC_Single_Channel_Tests_copy.net.nml"/>
+    
+
+        <!--Note: this could be: Simulation id="sim1" ... , but Component type="Simulation" ... 
+        is used to allow validation of this file according to the LEMS schema specified above...-->
+    <Component type="Simulation" id="sim1" length="60000.0ms" step="0.025ms" target="network_AOB_MC_Single_Channel_Tests_copy">
+        
+        <Display id="CellGroup_0_v" title="AOB_MC_Single_Channel_Tests_copy: Default Simulation Configuration, CellGroup_0, VOLTAGE" xmin="-6000.0" xmax="66000.0" ymin="-104.0" ymax="64.0" timeScale="1ms">
+            <Line id="v" timeScale="1ms" quantity="CellGroup_0/0/iMC1_cell_1_origin/0/v" scale="1 mV" color="#000000"/>
+        </Display>
+    
+        <OutputFile id="CellGroup_0_v_0_0_OF" fileName="/home/Simon/nC_projects/AOB_MC_Single_Channel_Tests_copy/simulations/Sim_11/CellGroup_0_0.0.dat">
+            <OutputColumn id="v" quantity="CellGroup_0/0/iMC1_cell_1_origin/0/v"/>
+        </OutputFile>
+    </Component>
+
+
+</Lems>

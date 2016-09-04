@@ -193,7 +193,7 @@ class NeuronSimulation():
 
 if __name__ == '__main__':
 
-    ns = NeuronSimulation(tstop=1000, dt=0.05)
+    ns = NeuronSimulation(tstop=60000, dt=0.05)
 
     ns.run()
 

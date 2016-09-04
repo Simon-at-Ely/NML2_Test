@@ -1,0 +1,2 @@
+export JNML_HOME=/home/Simon/neuroConstruct/jNeuroMLJar
+/home/Simon/neuroConstruct/jNeuroMLJar/jnml /home/Simon/nC_projects/AOB_MC_Single_Channel_Tests_copy/generatedNeuroML2/LEMS_AOB_MC_Single_Channel_Tests_copy.xml

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="NaP_iAMC_ChannelML">
+
+    <notes>Mitral Cell Persistent Sodium ion Channel</notes>
+
+    <ionChannel id="NaP_iAMC_ChannelML" conductance="10pS" type="ionChannelHH" species="na">
+
+        <notes>Na Channel</notes>
+
+        <gate id="m" type="gateHHtauInf" instances="3">
+            <timeCourse type="NaP_iAMC_ChannelML_m_tau_tau"/>
+            <steadyState type="HHSigmoidVariable" rate="0.499622025796" scale="4.9mV" midpoint="-59.0mV"/>
+        </gate>
+
+        <gate id="h" type="gateHHtauInf" instances="1">
+            <timeCourse type="NaP_iAMC_ChannelML_h_tau_tau"/>
+            <steadyState type="HHSigmoidVariable" rate="0.499622025796" scale="-4.9mV" midpoint="-59.0mV"/>
+        </gate>
+
+        <gate id="n" type="gateHHtauInf" instances="1">
+            <timeCourse type="NaP_iAMC_ChannelML_n_tau_tau"/>
+            <steadyState type="HHSigmoidVariable" rate="0.499622025796" scale="-4.9mV" midpoint="-59.0mV"/>
+        </gate>
+                            
+    </ionChannel>
+
+    <ComponentType name="NaP_iAMC_ChannelML_m_tau_tau" extends="baseVoltageDepTime">
+        <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
+        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
+
+        <Dynamics>
+            <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
+            <DerivedVariable name="t" exposure="t" dimension="time" value="((1+(4 * (exp(0 - ((V + 50)/20)^2))))) * TIME_SCALE"/>
+        </Dynamics>
+
+    </ComponentType>
+
+    <ComponentType name="NaP_iAMC_ChannelML_h_tau_tau" extends="baseVoltageDepTime">
+        <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
+        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
+
+        <Dynamics>
+            <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
+            <DerivedVariable name="t" exposure="t" dimension="time" value="((5000+(16000 * (exp(0 - ((V + 50)/20)^2))))) * TIME_SCALE"/>
+        </Dynamics>
+
+    </ComponentType>
+
+    <ComponentType name="NaP_iAMC_ChannelML_n_tau_tau" extends="baseVoltageDepTime">
+        <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
+        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
+
+        <Dynamics>
+            <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
+            <DerivedVariable name="t" exposure="t" dimension="time" value="(1) * TIME_SCALE"/>
+        </Dynamics>
+
+    </ComponentType>
+
+</neuroml>
