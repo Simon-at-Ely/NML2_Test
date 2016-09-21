@@ -175,24 +175,24 @@ class NeuronSimulation():
         # File to save: time
         py_v_time = [ t/1000 for t in h.v_time.to_python() ]  # Convert to Python list for speed...
 
-        f_time_f2 = open('/home/Simon/nC_projects/AOB_MC_Single_Channel_Tests_copy/simulations/Sim_11/time.dat', 'w')
+        f_time_f2 = open('/home/Simon/NML2_Test/iAMC_Fig10H3T/simulation/time.dat', 'w')
         num_points = len(py_v_time)  # Simulation may have been stopped before tstop...
 
         for i in range(num_points):
             f_time_f2.write('%f'% py_v_time[i])  # Save in SI units...+ '\n')
         f_time_f2.close()
-        print("Saved data to: /home/Simon/nC_projects/AOB_MC_Single_Channel_Tests_copy/simulations/Sim_11/time.dat")
+        print("Saved data to: /home/Simon/NML2_Test/iAMC_Fig10H3T/simulation/time.dat")
 
         # File to save: CellGroup_0_v_0_0_OF
         py_v_v_CellGroup_0_v_0_0_OF = [ float(x  / 1000.0) for x in h.v_v_CellGroup_0_v_0_0_OF.to_python() ]  # Convert to Python list for speed, variable has dim: voltage
 
-        f_CellGroup_0_v_0_0_OF_f2 = open('/home/Simon/nC_projects/AOB_MC_Single_Channel_Tests_copy/simulations/Sim_11/CellGroup_0_0.0.dat', 'w')
+        f_CellGroup_0_v_0_0_OF_f2 = open('/home/Simon/NML2_Test/iAMC_Fig10H3T/simulation/CellGroup_0_0.0.dat', 'w')
         num_points = len(py_v_time)  # Simulation may have been stopped before tstop...
 
         for i in range(num_points):
             f_CellGroup_0_v_0_0_OF_f2.write('%e\t'% py_v_time[i]  + '%e\t'%(py_v_v_CellGroup_0_v_0_0_OF[i]) + '\n')
         f_CellGroup_0_v_0_0_OF_f2.close()
-        print("Saved data to: /home/Simon/nC_projects/AOB_MC_Single_Channel_Tests_copy/simulations/Sim_11/CellGroup_0_0.0.dat")
+        print("Saved data to: /home/Simon/NML2_Test/iAMC_Fig10H3T/simulation/CellGroup_0_0.0.dat")
 
         save_end = time.time()
         save_time = save_end - self.sim_end
