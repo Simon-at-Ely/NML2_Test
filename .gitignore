@@ -1,3 +1,9 @@
 *.bak
 x86_64
 *.log
+AOB_MC_neuroConstruct/generatedMOOSE
+AOB_MC_neuroConstruct/generatedNEURON
+AOB_MC_neuroConstruct/generatedGENESIS
+AOB_MC_neuroConstruct/generatedNeuroML
+AOB_MC_neuroConstruct/generatedNeuroML2
+AOB_MC_neuroConstruct/simulations
