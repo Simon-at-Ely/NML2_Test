@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.githubusercontent.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="network_AOB_MC_neuroConstruct">
+
+    <notes>
+
+Network structure (NeuroML 2beta4) for project: AOB_MC_neuroConstruct saved with neuroConstruct v1.7.1 on: 22:58:27, 08-Nov-16
+
+Cell Group: CellGroup_0 contains 1 cells
+
+
+
+    </notes>
+
+
+    <include href="BK_IAMC_ChannelML.channel.nml"/>
+    <include href="CaV_R_iAMC_ChannelML.channel.nml"/>
+    <include href="Gran_CaPool_98.nml"/>
+    <include href="iMC1_cell_1_origin.cell.nml"/>
+    <include href="KA_iAMC_ChannelML.channel.nml"/>
+    <include href="Kdr_iAMC_ChannelML.channel.nml"/>
+    <include href="LeakConductance.channel.nml"/>
+    <include href="NaP_iAMC_ChannelML.channel.nml"/>
+    <include href="NaxSH0_ChannelML.channel.nml"/>
+    <include href="NaxSH10_ChannelML.channel.nml"/>
+    <network id="network_AOB_MC_neuroConstruct" type="networkWithTemperature" temperature="35.0 degC">
+
+        
+
+        <population id="CellGroup_0" component="iMC1_cell_1_origin" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.140625 0.890625 0.7421875"/>
+            </annotation>
+            <instance id="0">
+                <location x="84.929596" y="16.823599" z="21.396654"/>
+            </instance>
+        </population>
+
+
+
+            <!--There are no synaptic connections present in the network-->
+
+
+            <!--There are no electrical inputs present in the network-->
+
+
+
+
+    </network>
+
+</neuroml>

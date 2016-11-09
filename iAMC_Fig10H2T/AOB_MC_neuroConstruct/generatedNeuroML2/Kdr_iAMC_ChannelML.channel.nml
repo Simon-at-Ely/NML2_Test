@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta4.xsd" id="Kdr_iAMC_ChannelML">
+
+    <notes>ChannelML file containing a single Channel description</notes>
+
+    <ionChannel id="Kdr_iAMC_ChannelML" conductance="10pS" type="ionChannelHH" species="k">
+
+        <notes>Mitral cell K DR channel</notes>
+                
+        <annotation>
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                <rdf:Description rdf:about="Kdr_iAMC_ChannelML">
+                    
+                    <bqbiol:isVersionOf xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+                        <rdf:Bag>
+                            <rdf:li>K channels</rdf:li>
+                            <rdf:li rdf:resource="http://senselab.med.yale.edu/neuronDB/channelGene2.aspx#table3"/>
+                        </rdf:Bag>
+                    </bqbiol:isVersionOf>
+
+                </rdf:Description>
+            </rdf:RDF>
+        </annotation>
+
+        <gate id="m" type="gateHHtauInf" instances="1">
+            <timeCourse type="Kdr_iAMC_ChannelML_m_tau_tau"/>
+            <steadyState type="Kdr_iAMC_ChannelML_m_inf_inf"/>
+        </gate>
+
+        <gate id="n" type="gateHHtauInf" instances="1">
+            <timeCourse type="Kdr_iAMC_ChannelML_n_tau_tau"/>
+            <steadyState type="Kdr_iAMC_ChannelML_n_inf_inf"/>
+        </gate>
+                            
+    </ionChannel>
+
+    <ComponentType name="Kdr_iAMC_ChannelML_m_tau_tau" extends="baseVoltageDepTime">
+        <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
+        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
+
+        <Dynamics>
+            <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
+            <ConditionalDerivedVariable name="t" exposure="t" dimension="time">
+                <Case condition="V  .lt. ( -66.67 )" value="( 230.256604897 ) * TIME_SCALE"/>
+                <Case value="( 29.156*exp(-(V+55)/5.8842) + 18.394) * TIME_SCALE"/>
+            </ConditionalDerivedVariable>
+        </Dynamics>
+
+    </ComponentType>
+
+    <ComponentType name="Kdr_iAMC_ChannelML_m_inf_inf" extends="baseVoltageDepVariable">
+        <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
+        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
+
+        <Dynamics>
+            <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
+            <ConditionalDerivedVariable name="x" exposure="x" dimension="none">
+                <Case condition="V  .lt. ( -66.67 )" value=" 0 "/>
+                <Case value=" 0.005*V + 0.35"/>
+            </ConditionalDerivedVariable>
+        </Dynamics>
+
+    </ComponentType>
+
+    <ComponentType name="Kdr_iAMC_ChannelML_n_tau_tau" extends="baseVoltageDepTime">
+        <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
+        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
+
+        <Dynamics>
+            <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
+            <DerivedVariable name="t" exposure="t" dimension="time" value="(4) * TIME_SCALE"/>
+        </Dynamics>
+
+    </ComponentType>
+
+    <ComponentType name="Kdr_iAMC_ChannelML_n_inf_inf" extends="baseVoltageDepVariable">
+        <Constant name="TIME_SCALE" dimension="time" value="1 ms"/>
+        <Constant name="VOLT_SCALE" dimension="voltage" value="1 mV"/>
+
+        <Dynamics>
+            <DerivedVariable name="V" dimension="none" value="v / VOLT_SCALE"/>
+            <ConditionalDerivedVariable name="x" exposure="x" dimension="none">
+                <Case condition="V  .lt. ( 0 )" value=" 0 "/>
+                <Case value=" ((-0.006*V) + 0.40)"/>
+            </ConditionalDerivedVariable>
+        </Dynamics>
+
+    </ComponentType>
+
+</neuroml>
