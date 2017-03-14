@@ -16485,15 +16485,6 @@ proc biophys() {
     forsec all { 
 //      Assuming parameters other than max cond dens are set in the mod file...
 
-        insert LeakConductance  { gmax_LeakConductance = 1.676E-5 }  
-//      Ion non_specific is used in this mechanism...
-
-
-    }
-
-    forsec all { 
-//      Assuming parameters other than max cond dens are set in the mod file...
-
         insert Kdr_iAMC_ChannelML  { gmax_Kdr_iAMC_ChannelML = 0.1 }  
 //      Ion k is used in this mechanism...
 
@@ -16501,29 +16492,12 @@ proc biophys() {
 
     }
 
-    forsec soma_group { 
+    forsec all { 
 //      Assuming parameters other than max cond dens are set in the mod file...
 
-        insert CaV_R_iAMC_ChannelML  { gmax_CaV_R_iAMC_ChannelML = 1.0E-6 }  
-//      Ion ca is used in this mechanism...
+        insert LeakConductance  { gmax_LeakConductance = 1.676E-5 }  
+//      Ion non_specific is used in this mechanism...
 
-
-//      Group dendrite_group also has CaV_R_iAMC_ChannelML (CaV_R_iAMC_ChannelML (density: 1.0E-11 mS um^-2))
-        eca = 80.0  // note: this is val from ChannelML, may be reset later
-
-    }
-
-    forsec soma_group { 
-//      Assuming parameters other than max cond dens are set in the mod file...
-
-        insert KA_iAMC_ChannelML  { gmax_KA_iAMC_ChannelML = 0.002868 }  
-//      Ion k is used in this mechanism...
-
-
-//      Group axon_group also has KA_iAMC_ChannelML (KA_iAMC_ChannelML (density: 2.868E-7 mS um^-2))
-
-//      Group dendrite_group also has KA_iAMC_ChannelML (KA_iAMC_ChannelML (density: 2.868E-8 mS um^-2))
-        ek = -86.5  // note: this is val from ChannelML, may be reset later
 
     }
 
@@ -16564,6 +16538,32 @@ proc biophys() {
     forsec soma_group { 
 //      Assuming parameters other than max cond dens are set in the mod file...
 
+        insert CaV_R_iAMC_ChannelML  { gmax_CaV_R_iAMC_ChannelML = 1.0E-6 }  
+//      Ion ca is used in this mechanism...
+
+
+//      Group dendrite_group also has CaV_R_iAMC_ChannelML (CaV_R_iAMC_ChannelML (density: 1.0E-11 mS um^-2))
+        eca = 80.0  // note: this is val from ChannelML, may be reset later
+
+    }
+
+    forsec soma_group { 
+//      Assuming parameters other than max cond dens are set in the mod file...
+
+        insert KA_iAMC_ChannelML  { gmax_KA_iAMC_ChannelML = 0.002868 }  
+//      Ion k is used in this mechanism...
+
+
+//      Group axon_group also has KA_iAMC_ChannelML (KA_iAMC_ChannelML (density: 2.868E-7 mS um^-2))
+
+//      Group dendrite_group also has KA_iAMC_ChannelML (KA_iAMC_ChannelML (density: 2.868E-8 mS um^-2))
+        ek = -86.5  // note: this is val from ChannelML, may be reset later
+
+    }
+
+    forsec soma_group { 
+//      Assuming parameters other than max cond dens are set in the mod file...
+
         insert NaxSH10_ChannelML  { gmax_NaxSH10_ChannelML = 0.005 }  
 //      Ion na is used in this mechanism...
 
@@ -16585,9 +16585,9 @@ proc addChanMechs_0() {
 //      Ion k is used in this mechanism...
 
 
-//      Group dendrite_group also has KA_iAMC_ChannelML (KA_iAMC_ChannelML (density: 2.868E-8 mS um^-2))
-
 //      Group soma_group also has KA_iAMC_ChannelML (KA_iAMC_ChannelML (density: 2.868E-8 mS um^-2))
+
+//      Group dendrite_group also has KA_iAMC_ChannelML (KA_iAMC_ChannelML (density: 2.868E-8 mS um^-2))
         ek = -86.5  // note: this is val from ChannelML, may be reset later
 
     }
@@ -16598,6 +16598,42 @@ proc addChanMechs_0() {
         insert NaxSH0_ChannelML  { gmax_NaxSH0_ChannelML = 0.05 }  
 //      Ion na is used in this mechanism...
 
+        ena = 67.0  // note: this is val from ChannelML, may be reset later
+
+    }
+
+    forsec dendrite_group { 
+//      Assuming parameters other than max cond dens are set in the mod file...
+
+        insert NaxSH10_ChannelML  { gmax_NaxSH10_ChannelML = 0.005 }  
+//      Ion na is used in this mechanism...
+
+
+//      Group soma_group also has NaxSH10_ChannelML (NaxSH10_ChannelML (density: 5.0E-8 mS um^-2))
+        ena = 67.0  // note: this is val from ChannelML, may be reset later
+
+    }
+
+    forsec dendrite_group { 
+//      Assuming parameters other than max cond dens are set in the mod file...
+
+        insert CaV_R_iAMC_ChannelML  { gmax_CaV_R_iAMC_ChannelML = 1.0E-6 }  
+//      Ion ca is used in this mechanism...
+
+
+//      Group soma_group also has CaV_R_iAMC_ChannelML (CaV_R_iAMC_ChannelML (density: 1.0E-11 mS um^-2))
+        eca = 80.0  // note: this is val from ChannelML, may be reset later
+
+    }
+
+    forsec dendrite_group { 
+//      Assuming parameters other than max cond dens are set in the mod file...
+
+        insert NaP_iAMC_ChannelML  { gmax_NaP_iAMC_ChannelML = 0.04 }  
+//      Ion na is used in this mechanism...
+
+
+//      Group soma_group also has NaP_iAMC_ChannelML (NaP_iAMC_ChannelML (density: 4.0E-7 mS um^-2))
         ena = 67.0  // note: this is val from ChannelML, may be reset later
 
     }
@@ -16619,48 +16655,12 @@ proc addChanMechs_0() {
     forsec dendrite_group { 
 //      Assuming parameters other than max cond dens are set in the mod file...
 
-        insert NaP_iAMC_ChannelML  { gmax_NaP_iAMC_ChannelML = 0.04 }  
-//      Ion na is used in this mechanism...
-
-
-//      Group soma_group also has NaP_iAMC_ChannelML (NaP_iAMC_ChannelML (density: 4.0E-7 mS um^-2))
-        ena = 67.0  // note: this is val from ChannelML, may be reset later
-
-    }
-
-    forsec dendrite_group { 
-//      Assuming parameters other than max cond dens are set in the mod file...
-
-        insert CaV_R_iAMC_ChannelML  { gmax_CaV_R_iAMC_ChannelML = 1.0E-6 }  
-//      Ion ca is used in this mechanism...
-
-
-//      Group soma_group also has CaV_R_iAMC_ChannelML (CaV_R_iAMC_ChannelML (density: 1.0E-11 mS um^-2))
-        eca = 80.0  // note: this is val from ChannelML, may be reset later
-
-    }
-
-    forsec dendrite_group { 
-//      Assuming parameters other than max cond dens are set in the mod file...
-
         insert Gran_CaPool_98  {  }  
 //      Ion ca is used in this mechanism...
 
 
 //  Note: there is no reversal potential present for ion: ca
 
-
-    }
-
-    forsec dendrite_group { 
-//      Assuming parameters other than max cond dens are set in the mod file...
-
-        insert NaxSH10_ChannelML  { gmax_NaxSH10_ChannelML = 0.005 }  
-//      Ion na is used in this mechanism...
-
-
-//      Group soma_group also has NaxSH10_ChannelML (NaxSH10_ChannelML (density: 5.0E-8 mS um^-2))
-        ena = 67.0  // note: this is val from ChannelML, may be reset later
 
     }
 

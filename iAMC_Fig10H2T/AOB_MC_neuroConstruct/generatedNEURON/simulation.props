@@ -3,11 +3,11 @@
 <properties>
 <comment>This is a summary of the simulation parameters to assist reviewing of saved simulations in neuroConstruct.</comment>
 <entry key="Simulation temp">35.0</entry>
-<entry key="Duration">2000.0</entry>
+<entry key="Duration">60000.0</entry>
 <entry key="Unit system">NEURON Units</entry>
 <entry key="Script format">Hoc</entry>
-<entry key="neuroConstruct random seed">-1137454142</entry>
-<entry key="NEURON random seed">2120807813</entry>
+<entry key="neuroConstruct random seed">-1091065614</entry>
+<entry key="NEURON random seed">1303824787</entry>
 <entry key="Cell Mechanisms on iMC1_cell_1_origin">[BK_IAMC_ChannelML (9.0E-9) on: [soma_group], CaV_R_iAMC_ChannelML (1.0E-11) on: [dendrite_group, soma_group], Gran_CaPool_98 (5.2E-6) on: [dendrite_group, soma_group], KA_iAMC_ChannelML (2.868E-7) on: [axon_group], KA_iAMC_ChannelML (2.868E-8) on: [dendrite_group, soma_group], Kdr_iAMC_ChannelML (1.0E-6) on: [all], LeakConductance (1.676E-10) on: [all], NaP_iAMC_ChannelML (4.0E-7) on: [dendrite_group, soma_group], NaxSH0_ChannelML (5.0E-7) on: [axon_group], NaxSH10_ChannelML (5.0E-8) on: [dendrite_group, soma_group]]</entry>
 <entry key="Sim Config">Default Simulation Configuration (CellGroup_0, CellGroup_0_v)</entry>
 <entry key="Net connections"/>
@@ -15,10 +15,10 @@
 </entry>
 <entry key="Populations">CellGroup_0 (iMC1_cell_1_origin): 1; </entry>
 <entry key="Morph summary iMC1_cell_1_origin">Segs:5244_Secs:46_IntDivs:49</entry>
-<entry key="Script generation time">2.501</entry>
+<entry key="Script generation time">0.728</entry>
 <entry key="Global Cm">1.0E-8</entry>
 <entry key="neuroConstruct version">1.7.1</entry>
-<entry key="dt">0.01</entry>
+<entry key="dt">0.025</entry>
 <entry key="Global Rm">3.33333344E8</entry>
 <entry key="GUI Mode">ALL_SHOW</entry>
 <entry key="Simulator">NEURON</entry>

@@ -77,7 +77,7 @@ part of NeuroML or any standardised XML specification. -->
    <void method="get">
     <string>Cell Packing Adapter</string>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/>
+     <object class="ucl.physiol.neuroconstruct.project.packing.SinglePositionedCellPackingAdapter"/>
     </void>
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/>
@@ -227,9 +227,6 @@ part of NeuroML or any standardised XML specification. -->
      </void>
      <void property="minValue">
       <float>-90.0</float>
-     </void>
-     <void property="plotAndOrSave">
-      <string>Plot and save</string>
      </void>
      <void property="plotReference">
       <string>CellGroup_0_v</string>
@@ -601,7 +598,7 @@ part of NeuroML or any standardised XML specification. -->
  <object class="ucl.physiol.neuroconstruct.psics.PsicsSettings"/>
  <object class="ucl.physiol.neuroconstruct.simulation.SimulationParameters">
   <void property="dt">
-   <float>0.01</float>
+   <float>0.025</float>
   </void>
   <void property="duration">
    <float>1000.0</float>
@@ -701,7 +698,7 @@ part of NeuroML or any standardised XML specification. -->
       </void>
      </void>
      <void property="simDuration">
-      <float>2000.0</float>
+      <float>60000.0</float>
      </void>
     </object>
    </void>
