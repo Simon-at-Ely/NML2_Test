@@ -228,6 +228,9 @@ part of NeuroML or any standardised XML specification. -->
      <void property="minValue">
       <float>-90.0</float>
      </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
      <void property="plotReference">
       <string>CellGroup_0_v</string>
      </void>
